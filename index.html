@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- The following line connects the Tailwind framework to the page. 
+            This way of doing it is recommended for development rather than production.
+            Without any specific styling, the stylesheet's defaults make page elements 
+            hard to distinguish, so comment out the CDN link if you want a clearer view.
+            More info on Play CDN here: https://tailwindcss.com/docs/installation/play-cdn -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link type="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <!-- Outer wrapper -->
+        <div id="appcontainer">
+            <!-- For lyrics, titles, and user search interface -->
+            <div id="userdashboard">
+                <h1 id="headline">LyriQuest</h1>
+                <div id="wrapperlyrics">
+                    <!-- Search box -->
+                    <textarea id="searchlyrics" class="beforesearch"></textarea>
+                    <!-- Header for song title and artis. Should be populated with values returned 
+                        from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
+                    <h2 id="songnamebyartist"><span id="songname"></span><span id="artistname"></span></h2>
+                    <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
+                    <div id="dialoguebox" class="aftersearch" style="display:none">
+                        <!-- Mockup lyric results. Normally this div should start empty 
+                            and be populated with an API call, but we'll need to figure out 
+                            how to parse lyric results line-by-line 
+                            so they can be displayed like actual lyrics. -->
+                        Used to spend my nights out in a barroom<br>
+                        Liquor was the only love I'd known<br>
+                        But you rescued me from reaching for the bottom<br>
+                        And brought me back from being too far gone<br>
+                        <br>
+                        You're as smooth as Tennessee whiskey<br>
+                        You're as sweet as strawberry wine<br>
+                        You're as warm as a glass of brandy<br>
+                        And honey, I stay stoned on your love all the time<br>
+                        <br>
+                        I've looked for love in all the same old places<br>
+                        Found the bottom of the bottle's always dry<br>
+                        But when you poured out your heart I didn't waste it<br>
+                        'Cause there's nothing like your love to get me high<br>
+                        <br>
+                        You're as smooth as Tennessee whiskey<br>
+                        You're as sweet as strawberry wine<br>
+                        You're as warm as a glass of brandy<br>
+                        And honey, I stay stoned on your love all the time<br>
+                        <br>
+                        <i>[Instrumental]</i><br>
+                        <br>
+                        You're as smooth as Tennessee whiskey<br>
+                        You're as sweet as strawberry wine<br>
+                        You're as warm as a glass of brandy<br>
+                        And honey, I stay stoned on your love all the time<br>
+                        <br>
+                        You're as smooth as Tennessee whiskey<br>
+                        Tennessee whiskey<br>
+                        Tennessee whiskey<br>
+                        <br>
+                        You're as smooth as Tennessee whiskey<br>
+                        Tennessee whiskey<br>
+                        Tennessee whiskey
+                    </div>
+                </div>
+                <!-- Button to execute lyrics search or reset the page, 
+                    depending on what state it's in (using the "data-toggle" 
+                    attribute). For demo and development purposes, this button 
+                    is attached to an event handler that toggles the display 
+                    state of the page with mockup search results. -->
+                <button id="actionbutton" data-toggle="on">Submit</button>
+            </div>
+            <!-- For embedded content -->
+            <div id="outputdashboard">
+                <!-- Icon or image taking up space before search is made. -->
+                <img id="goicon" class="beforesearch">
+                <!-- Wrapper for embedded search results -->
+                <div id="embedwrapper" class="aftersearch" style="display:none">
+                    <!-- Youtube result goes here -->
+                    <iframe id="videoplayer" width="560" height="315" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <!-- Mockup of future development (artist bio): -->
+                    <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="creditswrapper">
+                <!-- Empty <a> tags with our names, just for now. -->
+                <a>Branning Knight</a>
+                <a>Kevin Lozaon</a>
+                <a>Brad Opdyke</a>
+                <a>Mostafa Taleb</a>
+                <a>Sam Tomaka</a>
+                <a>Michael Weiss</a>
+            </div>
+        </footer>
+
+        <!-- external JS -->
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./assets/js/script.js"></script>
+    </body>
+</html>
