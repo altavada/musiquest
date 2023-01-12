@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-background-dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +9,23 @@
             Without any specific styling, the stylesheet's defaults make page elements 
             hard to distinguish, so comment out the CDN link if you want a clearer view.
             More info on Play CDN here: https://tailwindcss.com/docs/installation/play-cdn -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link type="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <title>MusiQuest</title>
     </head>
     <body>
         <!-- Outer wrapper -->
         <div id="appcontainer">
             <!-- For lyrics, titles, and user search interface -->
-            <div id="userdashboard">
-                <h1 id="headline">LyriQuest</h1>
-                <div id="wrapperlyrics">
+            <div id="userdashboard" class="column is-two-thirds">
+                <h1 id="headline" class="title is-family-monospace is-1 has-text-info m-5">MusiQuest</h1>
+                <div id="wrapperlyrics" class="has-text-light">
                     <!-- Search box -->
-                    <textarea id="searchlyrics" class="beforesearch"></textarea>
+                    <textarea  id="searchlyrics" class="beforesearch textarea"></textarea>
                     <!-- Header for song title and artis. Should be populated with values returned 
                         from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
-                    <h2 id="songnamebyartist" style="display:none"><span id="songname"></span>, <span id="artistname"></span></h2>
+                    <h2 id="songnamebyartist"><span id="songname"></span><span id="artistname"></span></h2>
                     <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
-                    <div id="dialoguebox" class="aftersearch" style="display:none">
+                    <div id="dialoguebox" class="aftersearch tile is-one-third is-vertical" style="display:none">
                         <!-- Mockup lyric results. Normally this div should start empty 
                             and be populated with an API call, but we'll need to figure out 
                             how to parse lyric results line-by-line 
@@ -65,16 +65,17 @@
                         Tennessee whiskey<br>
                         Tennessee whiskey
                     </div>
-                </div>
-                <!-- Button to execute lyrics search or reset the page, 
+                    <!-- Button to execute lyrics search or reset the page, 
                     depending on what state it's in (using the "data-toggle" 
                     attribute). For demo and development purposes, this button 
                     is attached to an event handler that toggles the display 
                     state of the page with mockup search results. -->
-                <button id="actionbutton" data-toggle="on">Submit</button>
+                
+                </div>
+                <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mt-3 mb-3">Submit</button>
             </div>
             <!-- For embedded content -->
-            <div id="outputdashboard">
+            <div id="outputdashboard" class="mt-6">
                 <!-- Icon or image taking up space before search is made. -->
                 <img id="goicon" class="beforesearch">
                 <!-- Wrapper for embedded search results -->
@@ -86,15 +87,15 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <div id="creditswrapper">
+        <footer class="has-text-centered mt-6 pt-6 pb-1">
+            <div id="creditswrapper" class="">
                 <!-- Empty <a> tags with our names, just for now. -->
-                <a>Branning Knight</a>
-                <a>Kevin Lozaro</a>
-                <a>Brad Opdyke</a>
-                <a>Mostafa Taleb</a>
-                <a>Sam Tomaka</a>
-                <a>Michael Weiss</a>
+                <a class="has-text-light is-size-7">Branning Knight, </a>
+                <a class="has-text-light is-size-7">Kevin Lozaro, </a>
+                <a class="has-text-light is-size-7">Brad Opdyke, </a>
+                <a class="has-text-light is-size-7">Mostafa Taleb, </a>
+                <a class="has-text-light is-size-7">Sam Tomaka, </a>
+                <a class="has-text-light is-size-7">Michael Weiss. </a>
             </div>
         </footer>
 
