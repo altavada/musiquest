@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html class="has-background-dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- The following line connects the Tailwind framework to the page. 
-            This way of doing it is recommended for development rather than production.
-            Without any specific styling, the stylesheet's defaults make page elements 
-            hard to distinguish, so comment out the CDN link if you want a clearer view.
-            More info on Play CDN here: https://tailwindcss.com/docs/installation/play-cdn -->
-        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+        <!-- Link to Bulma framework -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
         <link type="stylesheet" href="./assets/css/style.css">
+        <title>MusiQuest</title>
     </head>
     <body>
         <!-- Outer wrapper -->
         <div id="appcontainer">
             <!-- For lyrics, titles, and user search interface -->
-            <div id="userdashboard">
-                <h1 id="headline">LyriQuest</h1>
-                <div id="wrapperlyrics">
+            <div id="userdashboard" class="m-3">
+                <h1 id="headline" class="is-size-1 has-text-light m-3">MusiQuest</h1>
+                <div id="wrapperlyrics" class="block">
                     <!-- Search box -->
-                    <textarea id="searchlyrics" class="beforesearch"></textarea>
+                    <textarea id="searchlyrics" class="beforesearch column is-two-thirds "></textarea>
                     <!-- Header for song title and artis. Should be populated with values returned 
                         from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
                     <h2 id="songnamebyartist" style="display:none"><span id="songname"></span>, <span id="artistname"></span></h2>
@@ -37,7 +34,7 @@
                     attribute). For demo and development purposes, this button 
                     is attached to an event handler that toggles the display 
                     state of the page with mockup search results. -->
-                <button id="actionbutton" data-toggle="on">Submit</button>
+                <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mb-6">Submit</button>
             </div>
             <!-- For embedded content -->
             <div id="outputdashboard">
@@ -52,15 +49,15 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <div id="creditswrapper">
+        <footer class="mt-6">
+            <div id="creditswrapper" class="has-text-centered is-size-7">
                 <!-- Empty <a> tags with our names, just for now. -->
-                <a>Branning Knight</a>
-                <a>Kevin Lozaro</a>
-                <a>Brad Opdyke</a>
-                <a>Mostafa Taleb</a>
-                <a>Sam Tomaka</a>
-                <a>Michael Weiss</a>
+                <a class="has-text-light">Branning Knight</a>
+                <a class="has-text-light">Kevin Lozaro</a>
+                <a class="has-text-light">Brad Opdyke</a>
+                <a class="has-text-light">Mostafa Taleb</a>
+                <a class="has-text-light">Sam Tomaka</a>
+                <a class="has-text-light">Michael Weiss</a>
             </div>
         </footer>
 
