@@ -29,8 +29,6 @@ function userSearch() {
 
 function fetchData(name) {
     $('#songnamebyartist').text(name);
-    // this line to embed the video(s) will likely go somewhere else once YT API is integrated
-    // videoPlayer.attr('src','https://www.youtube.com/embed/4zAThXFOy2c');
     fetch(urlDisco + name)
         .then(function (response) {
             if (response.ok) {
