@@ -81,9 +81,9 @@ function fetchMedia(artist) {
             if (data.items[0].id.kind != 'youtube#video') {
                 x++;
             }
-            videoPlayer.attr('src', youTubeVid + data.items[0].id.videoId);
-            discography.append(`<img class="thumbNail" src="${data.items[0].snippet.thumbnails.default.url}">
-            <a class="videoLink" href="https://www.youtube.com/watch?v=${data.items[0].id.videoId}" target="_blank">${data.items[0].snippet.title}</a>`);  
+            videoPlayer.attr('src', youTubeVid + data.items[x].id.videoId);
+            discography.append(`<img class="thumbNail" src="${data.items[x].snippet.thumbnails.default.url}">
+            <a class="videoLink" href="https://www.youtube.com/watch?v=${data.items[x].id.videoId}" target="_blank">${data.items[0].snippet.title}</a>`);  
     })
 }
 
