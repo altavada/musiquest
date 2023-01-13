@@ -76,9 +76,8 @@ function fetchMedia(artist) {
         })
         .then(data => {
             videoPlayer.attr('src', youTubeVid + data.items[0].id.videoId);
-            discography.append(`<img class="thumbNail" src="${data.items[0].snippet.thumbnails.default.url}">`);
-            // discography.append(`<img class="thumbNail" src="${data.items[0].snippet.thumbnails.default.url}">
-            // <a class="videoLink" href="https://www.youtube.com/watch?v=${data.items[0].id.videoId}" target="_blank">${data.items[0].snippet.title}</a>`);  
+            discography.append(`<img class="thumbNail" src="${data.items[0].snippet.thumbnails.default.url}">
+            <a class="videoLink" href="https://www.youtube.com/watch?v=${data.items[0].id.videoId}" target="_blank">${data.items[0].snippet.title}</a>`);  
     })
 }
 
