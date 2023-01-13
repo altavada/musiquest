@@ -4,6 +4,7 @@ let searchArtist = $("#searchlyrics");
 let videoPlayer = $('#videoplayer');
 let preSearch = $('.beforesearch');
 let postSearch = $('.aftersearch');
+let userDash = $('#userdashboard');
 let urlDisco = "https://theaudiodb.com/api/v1/json/2/discography.php?s=";
 let urlInfo = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
 
@@ -18,6 +19,7 @@ function userSearch() {
         videoPlayer.removeAttr('src');
         preSearch.removeAttr('style');
         postSearch.css('display', 'none');
+        userDash.children('img').remove();
         actionButton.text('Submit');
         actionButton.attr('data-toggle','on');
     }
@@ -38,27 +40,30 @@ function fetchData(name) {
         .then(data => {
             let discoArray = data.album.length;
             for (let i = 0; i < discoArray; i++) {
-                $("#discography").append(`<li>${data.album[i].strAlbum} -- ${data.album[i].intYearReleased}</li>`);
+                $("#discography").append(`<li>${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
             }   
             preSearch.css('display', 'none');
             postSearch.removeAttr('style');
             actionButton.text('Go Back');
             actionButton.attr('data-toggle','off');
         })
+    fetch(urlInfo + name)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return Promise.reject(response);
+            }
+        })
+        .then(data => {
+            let banner = data.artists[0].strArtistBanner;
+            if (banner != null) {
+                userDash.prepend('<img src=' + banner + '>');
+            }
+        })
 }
 
 
-    // fetch(urlInfo + artistName)
-    // .then(function (response) {
-    //     if (response.ok) {
-    //         return response.json();
-    //     } else {
-    //         return Promise.reject(response);
-    //     }
-    // })
-    // .then(data => {
-    //     discography.append(data.album[0].strAlbum)
-    // })
 
 // https://theaudiodb.com/api/v1/json/2/discography.php?s=
 // Artist Albums & Release Years
