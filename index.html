@@ -22,10 +22,10 @@
                         from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
                     <h2 id="songnamebyartist" class="has-text-light" style="display:none"><span id="songname" class="has-text-light"></span>, <span id="artistname"></span></h2>
                     <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
-                    <div id="dialoguebox" class="aftersearch" style="display:none">
+                    <div id="dialoguebox" class="aftersearch has-text-light" style="display:none">
                     <!--Output for discography for artist searched by user-->
-                        <ul id="discography">
-                            
+                        <ul id="discography" class="mt-4"><span class="is-size-4 block">Albums:</span>
+                            <li class="">yoo</li>
                         </ul>
                     </div>
                 </div>
@@ -36,8 +36,9 @@
                     state of the page with mockup search results. -->
                 <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mb-6">Submit</button>
             </div>
-            <!-- For embedded content -->
-            <div id="outputdashboard">
+        </div>
+        <!-- For embedded content -->
+        <div id="outputdashboard" class="section">
                 <!-- Icon or image taking up space before search is made. -->
                 <img id="goicon" class="beforesearch">
                 <!-- Wrapper for embedded search results -->
@@ -48,7 +49,6 @@
                     <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
                 </div>
             </div>
-        </div>
         <footer class="mt-6">
             <div id="creditswrapper" class="has-text-centered is-size-7">
                 <!-- Empty <a> tags with our names, just for now. -->
