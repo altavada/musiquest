@@ -5,6 +5,7 @@ let videoPlayer = $('#videoplayer');
 let preSearch = $('.beforesearch');
 let postSearch = $('.aftersearch');
 let userDash = $('#userdashboard');
+let dialouge = $('#wrapperlyrics')
 let urlDisco = "https://theaudiodb.com/api/v1/json/2/discography.php?s=";
 let urlInfo = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
 let youTubeVid = "https://www.youtube.com/watch?v=";
@@ -21,12 +22,7 @@ function userSearch() {
             return Promise.reject(response);
         }
     })
-    .then(data => {
-        let discoArray = data.album.length;
-        for (let i = 0; i < discoArray; i++) {
-            discography.append(`<li>${data.album[i].strAlbum} -- ${data.album[i].intYearReleased}</li>`);
-        }
-    })
+
     fetch(urlInfo + artistName)
     .then(function (response) {
         if (response.ok) {
@@ -36,7 +32,7 @@ function userSearch() {
         }
     })
     .then(data => {
-        userDash.prepend(`<img src=${data.artists[0].strArtistBanner}>`);
+        dialouge.prepend(`<img src=${data.artists[0].strArtistBanner}>`);
     })
     let youTubeID = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + artistName + "&key=AIzaSyDefkvE7bM1ACryGnTt2zai9Z-pHZGAEXo"
     fetch(youTubeID)
@@ -79,7 +75,7 @@ function fetchData(name) {
         .then(data => {
             let discoArray = data.album.length;
             for (let i = 0; i < discoArray; i++) {
-                $("#discography").append(`<li>${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
+                $("#discography").append(`<li class="mt-2 ml-5 is-size-5">${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
             }   
             preSearch.css('display', 'none');
             postSearch.removeAttr('style');
@@ -94,12 +90,12 @@ function fetchData(name) {
                 return Promise.reject(response);
             }
         })
-        .then(data => {
-            let banner = data.artists[0].strArtistBanner;
-            if (banner != null) {
-                userDash.prepend('<img src=' + banner + '>');
-            }
-        })
+        // .then(data => {
+        //     let banner = data.artists[0].strArtistBanner;
+        //     // if (banner != null) {
+        //     //     userDash.prepend('<img src=' + banner + '>');
+        //     // }
+        // })
 }
 
 

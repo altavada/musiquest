@@ -15,7 +15,7 @@
             <!-- For lyrics, titles, and user search interface -->
             <div id="userdashboard" class="m-3 tile is-child is-two-thirds">
                 <h1 id="headline" class="is-size-1 title has-text-light m-3 tile is-child is-12">MusiQuest</h1>
-                <div id="wrapperlyrics" class="block mt-4 column is-two-thirds">
+                <div id="wrapperlyrics" class="block mt-4 column is-12">
                     <!-- Search box -->
                     <textarea id="searchlyrics" class="beforesearch textarea column is-4 "></textarea>
                     <!-- Header for song title and artis. Should be populated with values returned 
@@ -24,8 +24,8 @@
                     <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
                     <div id="dialoguebox" class="aftersearch has-text-light" style="display:none">
                     <!--Output for discography for artist searched by user-->
-                        <ul id="discography" class="mt-4"><span class="is-size-3 block">Albums:</span>
-                            <li class="mt-2 ml-5 is-size-5">Traveler - 2015</li>
+                        <ul id="discography" class="mt-4 column is-9"><span class="is-size-3 block">Albums:</span>
+                            <li class="mt-2 ml-5 is-size-5"></li>
                         </ul>
                     </div>
                     <!-- Button to execute lyrics search or reset the page, 
@@ -34,13 +34,12 @@
                     is attached to an event handler that toggles the display 
                     state of the page with mockup search results. -->
                     <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mt-3 mb-6">Submit</button>
-                </div>
-                
+                </div> 
             </div>
                 <!-- Wrapper for embedded search results -->
-                <div id="embedwrapper" class="aftersearch m-3" style="display:none">
+                <div id="embedwrapper" class="aftersearch m-3 mt-6 section" style="display:none">
                     <!-- Youtube result goes here -->
-                    <iframe id="videoplayer" class="tile is-pulled-right" width="560" height="315" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe id="videoplayer" class="tile is-pulled-right is-middle mt-6" width="450" height="300" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <!-- Mockup of future development (artist bio): -->
                     <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
                 </div>
