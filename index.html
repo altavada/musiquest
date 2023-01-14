@@ -11,13 +11,13 @@
     </head>
     <body>
         <!-- Outer wrapper -->
-        <div id="appcontainer" class="tile is-parent is-5">
+        <div id="appcontainer" class="tile is-parent is-12">
             <!-- For lyrics, titles, and user search interface -->
             <div id="userdashboard" class="m-3 tile is-child is-two-thirds">
                 <h1 id="headline" class="is-size-1 title has-text-light m-3 tile is-child is-12">MusiQuest</h1>
-                <div id="wrapperlyrics" class="block mt-4">
+                <div id="wrapperlyrics" class="block mt-4 column is-two-thirds">
                     <!-- Search box -->
-                    <textarea id="searchlyrics" class="beforesearch textarea column is-two-thirds tile is-12"></textarea>
+                    <textarea id="searchlyrics" class="beforesearch textarea column is-4 "></textarea>
                     <!-- Header for song title and artis. Should be populated with values returned 
                         from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
                     <h2 id="songnamebyartist" class="has-text-light" style="display:none"><span id="songname" class="has-text-light"></span>, <span id="artistname"></span></h2>
@@ -28,36 +28,38 @@
                             <li class="">yoo</li>
                         </ul>
                     </div>
-                </div>
-                <!-- Button to execute lyrics search or reset the page, 
+                    <!-- Button to execute lyrics search or reset the page, 
                     depending on what state it's in (using the "data-toggle" 
                     attribute). For demo and development purposes, this button 
                     is attached to an event handler that toggles the display 
                     state of the page with mockup search results. -->
-                <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mb-6">Submit</button>
+                    <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mt-3 mb-6">Submit</button>
+                </div>
+                
             </div>
-        </div>
-        <!-- For embedded content -->
-        <div id="outputdashboard" class="section">
-                <!-- Icon or image taking up space before search is made. -->
-                <img id="goicon" class="beforesearch">
-                <!-- Wrapper for embedded search results -->
-                <div id="embedwrapper" class="aftersearch" style="display:none">
+             <!-- Wrapper for embedded search results -->
+                <div id="embedwrapper" class="aftersearch m-3" style="display:none">
                     <!-- Youtube result goes here -->
-                    <iframe id="videoplayer" width="560" height="315" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe id="videoplayer" class="tile is-pulled-right" width="560" height="315" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <!-- Mockup of future development (artist bio): -->
                     <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
                 </div>
+        </div>
+        <!-- For embedded content -->
+        <div id="outputdashboard" class="section tile is-pulled-right">
+                <!-- Icon or image taking up space before search is made. -->
+                <img id="goicon" class="beforesearch ">
+               
             </div>
         <footer class="mt-6">
-            <div id="creditswrapper" class="has-text-centered is-size-7">
+            <div id="creditswrapper" class="footer has-background-dark has-text-centered is-size-7">
                 <!-- Empty <a> tags with our names, just for now. -->
-                <a class="has-text-light">Branning Knight</a>
-                <a class="has-text-light">Kevin Lozaro</a>
-                <a class="has-text-light">Brad Opdyke</a>
-                <a class="has-text-light">Mostafa Taleb</a>
-                <a class="has-text-light">Sam Tomaka</a>
-                <a class="has-text-light">Michael Weiss</a>
+                <a class="has-text-light">Branning Knight, </a>
+                <a class="has-text-light">Kevin Lozaro, </a>
+                <a class="has-text-light">Brad Opdyke, </a>
+                <a class="has-text-light">Mostafa Taleb, </a>
+                <a class="has-text-light">Sam Tomaka, </a>
+                <a class="has-text-light">Michael Weiss. </a>
             </div>
         </footer>
 
