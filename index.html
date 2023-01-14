@@ -20,12 +20,12 @@
                     <textarea id="searchlyrics" class="beforesearch textarea column is-4 "></textarea>
                     <!-- Header for song title and artis. Should be populated with values returned 
                         from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
-                    <h2 id="songnamebyartist" class="has-text-light" style="display:none"><span id="songname" class="has-text-light"></span>, <span id="artistname"></span></h2>
+                    <h2 id="songnamebyartist" class="has-text-light title is-size-3 mb-6" style="display:none"><span id="artistname"></span></h2>
                     <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
                     <div id="dialoguebox" class="aftersearch has-text-light" style="display:none">
                     <!--Output for discography for artist searched by user-->
-                        <ul id="discography" class="mt-4"><span class="is-size-4 block">Albums:</span>
-                            <li class="">Traveler - 2015</li>
+                        <ul id="discography" class="mt-4"><span class="is-size-3 block">Albums:</span>
+                            <li class="mt-2 ml-5 is-size-5">Traveler - 2015</li>
                         </ul>
                     </div>
                     <!-- Button to execute lyrics search or reset the page, 
@@ -37,7 +37,7 @@
                 </div>
                 
             </div>
-             <!-- Wrapper for embedded search results -->
+                <!-- Wrapper for embedded search results -->
                 <div id="embedwrapper" class="aftersearch m-3" style="display:none">
                     <!-- Youtube result goes here -->
                     <iframe id="videoplayer" class="tile is-pulled-right" width="560" height="315" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -49,7 +49,6 @@
         <div id="outputdashboard" class="section tile">
                 <!-- Icon or image taking up space before search is made. -->
                 <img id="goicon" class="beforesearch ">
-               
         </div>
     </body>    
     <footer class="mt-6">
