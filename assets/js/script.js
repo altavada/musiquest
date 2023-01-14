@@ -5,7 +5,7 @@ let videoPlayer = $('#videoplayer');
 let preSearch = $('.beforesearch');
 let postSearch = $('.aftersearch');
 let userDash = $('#userdashboard');
-let dialouge = $('#wrapperlyrics')
+let lyrics = $('#wrapperlyrics')
 let urlDisco = "https://theaudiodb.com/api/v1/json/2/discography.php?s=";
 let urlInfo = "https://www.theaudiodb.com/api/v1/json/523532/search.php?s=";
 let youTubeVid = "https://www.youtube.com/watch?v=";
