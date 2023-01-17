@@ -15,12 +15,13 @@
             <!-- For lyrics, titles, and user search interface -->
             <div id="userdashboard" class="m-3 tile is-child is-two-thirds">
                 <h1 id="headline" class="is-size-1 title has-text-light m-3 tile is-child is-12 is-clickable">MusiQuest</h1>
+                <!-- Header for song title and artis. Should be populated with values returned 
+                from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
+                <h2 id="songnamebyartist" class="tile is-ancestor block has-text-light title is-size-3 mb-3 aftersearch result-field column is-12" style="display:none"><span id="artistname"></span></h2>
                 <div id="wrapperlyrics" class="block mt-4 column is-12">
                     <!-- Search box -->
                     <textarea id="searchlyrics" class="beforesearch textarea column is-4 "></textarea>
-                    <!-- Header for song title and artis. Should be populated with values returned 
-                        from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
-                    <h2 id="songnamebyartist" class="has-text-light title is-size-3 mb-6 aftersearch result-field" style="display:none"><span id="artistname"></span></h2>
+                    
                     <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
                     <div id="dialoguebox" class="aftersearch has-text-light" style="display:none">
                     <!--Output for discography for artist searched by user-->
@@ -37,9 +38,9 @@
                 </div> 
             </div>
                 <!-- Wrapper for embedded search results -->
-                <div id="embedwrapper" class="aftersearch m-3 mt-5 section" style="display:none">
+                <div id="embedwrapper" class="tile aftersearch m-3 mt-6 section" style="display:none">
                     <!-- Youtube result goes here -->
-                    <iframe id="videoplayer" class="tile is-pulled-right is-middle mt-2 column is-12" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe id="videoplayer" class="tile is-pulled-right is-middle mt-6 column is-12 section" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <!-- Mockup of future development (artist bio): -->
                     <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
                 </div>
