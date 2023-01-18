@@ -4,103 +4,64 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- The following line connects the Tailwind framework to the page. 
-            This way of doing it is recommended for development rather than production.
-            Without any specific styling, the stylesheet's defaults make page elements 
-            hard to distinguish, so comment out the CDN link if you want a clearer view.
-            More info on Play CDN here: https://tailwindcss.com/docs/installation/play-cdn -->
+        <!-- Link to Bulma framework -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link type="stylesheet" href="./assets/css/style.css">
         <title>MusiQuest</title>
     </head>
     <body>
         <!-- Outer wrapper -->
-        <div id="appcontainer">
+        <div id="appcontainer" class="tile is-parent is-12">
             <!-- For lyrics, titles, and user search interface -->
-            <div id="userdashboard" class="column is-two-thirds">
-                <h1 id="headline" class="title is-family-monospace is-1 has-text-info m-5">MusiQuest</h1>
-                <div id="wrapperlyrics" class="has-text-light">
+            <div id="userdashboard" class="m-3 tile is-child is-two-thirds">
+                <h1 id="headline" class="is-size-1 title has-text-light m-3 tile is-child is-12 is-clickable">MusiQuest</h1>
+                <div id="wrapperlyrics" class="block mt-4 column is-12">
                     <!-- Search box -->
-                    <textarea  id="searchlyrics" class="beforesearch textarea"></textarea>
+                    <textarea id="searchlyrics" class="beforesearch textarea column is-4 "></textarea>
                     <!-- Header for song title and artis. Should be populated with values returned 
                         from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
-                    <h2 id="songnamebyartist"><span id="songname"></span><span id="artistname"></span></h2>
+                    <h2 id="songnamebyartist" class="has-text-light title is-size-3 mb-6 aftersearch result-field" style="display:none"><span id="artistname"></span></h2>
                     <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
-                    <div id="dialoguebox" class="aftersearch tile is-one-third is-vertical" style="display:none">
-                        <!-- Mockup lyric results. Normally this div should start empty 
-                            and be populated with an API call, but we'll need to figure out 
-                            how to parse lyric results line-by-line 
-                            so they can be displayed like actual lyrics. -->
-                        Used to spend my nights out in a barroom<br>
-                        Liquor was the only love I'd known<br>
-                        But you rescued me from reaching for the bottom<br>
-                        And brought me back from being too far gone<br>
-                        <br>
-                        You're as smooth as Tennessee whiskey<br>
-                        You're as sweet as strawberry wine<br>
-                        You're as warm as a glass of brandy<br>
-                        And honey, I stay stoned on your love all the time<br>
-                        <br>
-                        I've looked for love in all the same old places<br>
-                        Found the bottom of the bottle's always dry<br>
-                        But when you poured out your heart I didn't waste it<br>
-                        'Cause there's nothing like your love to get me high<br>
-                        <br>
-                        You're as smooth as Tennessee whiskey<br>
-                        You're as sweet as strawberry wine<br>
-                        You're as warm as a glass of brandy<br>
-                        And honey, I stay stoned on your love all the time<br>
-                        <br>
-                        <i>[Instrumental]</i><br>
-                        <br>
-                        You're as smooth as Tennessee whiskey<br>
-                        You're as sweet as strawberry wine<br>
-                        You're as warm as a glass of brandy<br>
-                        And honey, I stay stoned on your love all the time<br>
-                        <br>
-                        You're as smooth as Tennessee whiskey<br>
-                        Tennessee whiskey<br>
-                        Tennessee whiskey<br>
-                        <br>
-                        You're as smooth as Tennessee whiskey<br>
-                        Tennessee whiskey<br>
-                        Tennessee whiskey
+                    <div id="dialoguebox" class="aftersearch has-text-light" style="display:none">
+                    <!--Output for discography for artist searched by user-->
+                        <ul id="discography" class="result-field" class="mt-4 column is-9"><span class="is-size-3 block">Albums:</span>
+                            
+                        </ul>
                     </div>
                     <!-- Button to execute lyrics search or reset the page, 
                     depending on what state it's in (using the "data-toggle" 
                     attribute). For demo and development purposes, this button 
                     is attached to an event handler that toggles the display 
                     state of the page with mockup search results. -->
-                
-                </div>
-                <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mt-3 mb-3">Submit</button>
+                    <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mt-3 mb-6">Submit</button>
+                </div> 
             </div>
-            <!-- For embedded content -->
-            <div id="outputdashboard" class="mt-6">
-                <!-- Icon or image taking up space before search is made. -->
-                <img id="goicon" class="beforesearch">
                 <!-- Wrapper for embedded search results -->
-                <div id="embedwrapper" class="aftersearch" style="display:none">
+                <div id="embedwrapper" class="aftersearch m-3 mt-5 section" style="display:none">
                     <!-- Youtube result goes here -->
-                    <iframe id="videoplayer" width="560" height="315" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe id="videoplayer" class="tile is-pulled-right is-middle mt-2 column is-12" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <!-- Mockup of future development (artist bio): -->
                     <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
                 </div>
-            </div>
         </div>
-        <footer class="has-text-centered mt-6 pt-6 pb-1">
-            <div id="creditswrapper" class="">
-                <!-- Empty <a> tags with our names, just for now. -->
-                <a class="has-text-light is-size-7">Branning Knight, </a>
-                <a class="has-text-light is-size-7">Kevin Lozaro, </a>
-                <a class="has-text-light is-size-7">Brad Opdyke, </a>
-                <a class="has-text-light is-size-7">Mostafa Taleb, </a>
-                <a class="has-text-light is-size-7">Sam Tomaka, </a>
-                <a class="has-text-light is-size-7">Michael Weiss. </a>
-            </div>
-        </footer>
-
-        <!-- external JS -->
-        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="./assets/js/script.js"></script>
-    </body>
+        <!-- For embedded content -->
+        <div id="outputdashboard" class="section tile">
+                <!-- Icon or image taking up space before search is made. -->
+                <img id="goicon" class="beforesearch ">
+        </div>
+    </body>    
+    <footer class="mt-3">
+        <div id="creditswrapper" class="footer has-background-dark has-text-centered is-size-7">
+            <!-- Empty <a> tags with our names, just for now. -->
+            <a class="has-text-light" href="https://github.com/BranningK">Branning Knight, </a>
+            <a class="has-text-light" href="https://github.com/klozano17">Kevin Lozaro, </a>
+            <a class="has-text-light" href="https://github.com/bradopdyke">Brad Opdyke, </a>
+            <a class="has-text-light" href="https://github.com/Mufasa91">Mostafa Taleb, </a>
+            <a class="has-text-light" href="https://github.com/altavada">Sam Tomaka, </a>
+            <a class="has-text-light" href="https://github.com/Veis1337">Michael Weiss. </a>
+        </div>
+    </footer>
+    <!-- external JS -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./assets/js/script.js"></script>
 </html>
