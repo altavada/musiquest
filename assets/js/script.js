@@ -40,7 +40,7 @@ function userSearch() {
 }
 
 function fetchData(name) {
-    // $('#songnamebyartist').text(name);
+    
     fetch(urlDisco + name)
         .then(function (response) {
             if (response.ok) {
@@ -75,6 +75,8 @@ function fetchMedia(artist) {
         let banner = data.artists[0].strArtistBanner;
         if (banner != null) {
             songNBA.prepend('<img src=' + banner + '>');
+        } else {
+            $('#songnamebyartist').text(artist);
         }
     })
     let youTubeID = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + artist + "&key=AIzaSyDefkvE7bM1ACryGnTt2zai9Z-pHZGAEXo"
