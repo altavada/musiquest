@@ -6,6 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- Link to Bulma framework -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <!-- The following line connects the Tailwind framework to the page. 
+            This way of doing it is recommended for development rather than production.
+            Without any specific styling, the stylesheet's defaults make page elements 
+            hard to distinguish, so comment out the CDN link if you want a clearer view.
+            More info on Play CDN here: https://tailwindcss.com/docs/installation/play-cdn -->
+        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
         <link type="stylesheet" href="./assets/css/style.css">
         <title>MusiQuest</title>
     </head>
@@ -16,7 +22,21 @@
             <div id="userdashboard" class="m-3 tile is-child is-12">
                 <h1 id="headline" class="tile is-size-1 title has-text-light m-3 is-12 is-clickable">MusiQuest</h1>
                 <div id="wrapperlyrics" class="block mt-4 column is-12">
+            <div id="userdashboard">
+                <h1 id="headline">MusiQuest</h1>
+                <div id="wrapperlyrics">
                     <!-- Search box -->
+                    <textarea id="searchlyrics" class="beforesearch"></textarea>
+                    <!-- Header for song title and artis. Should be populated with values returned 
+                        from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
+                    <h2 id="songnamebyartist" class="aftersearch result-field" style="display:none"></h2>
+                    <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
+                    <div id="dialoguebox" class="aftersearch" style="display:none">
+                    <!--Output for discography for artist searched by user-->
+                        <ul id="discography" class="result-field">
+                            
+                            
+                        </ul>
                     <textarea id="searchlyrics" class="beforesearch textarea column is-12"></textarea>
                     <!-- Holds the banner or the artisit's name depending on if there is a banner -->
                     <h2 id="songnamebyartist" class="has-text-light title is-size-3 mb-4 is-12 aftersearch result-field" style="display:none"><span id="artistname"></span></h2>
