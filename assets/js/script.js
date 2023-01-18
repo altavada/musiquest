@@ -4,7 +4,7 @@ let searchArtist = $("#searchlyrics");
 let videoPlayer = $('#videoplayer');
 let preSearch = $('.beforesearch');
 let postSearch = $('.aftersearch');
-let wrapperLyrics = $('#songnamebyartist');
+let songNBA = $('#songnamebyartist');
 let userDash = $('#userdashboard');
 let discography = $("#discography");
 let musiQuest = $('#headline')
@@ -74,7 +74,7 @@ function fetchMedia(artist) {
     .then(data => {
         let banner = data.artists[0].strArtistBanner;
         if (banner != null) {
-            wrapperLyrics.prepend('<img src=' + banner + '>');
+            songNBA.prepend('<img src=' + banner + '>');
         }
     })
     let youTubeID = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + artist + "&key=AIzaSyDefkvE7bM1ACryGnTt2zai9Z-pHZGAEXo"
