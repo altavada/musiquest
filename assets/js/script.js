@@ -54,15 +54,21 @@ function fetchData(name) {
             }
         })
         .then(data => {
-            let discoArray = data.album.length;
-            for (let i = 0; i < discoArray; i++) {
-                discography.append(`<li>${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
+            if (data.album == null) {
+                searchArtist.val('');
+                searchArtist.attr("placeholder","Artist Not Found -- Please try again");
+                return;
+            } else {
+                let discoArray = data.album.length;
+                for (let i = 0; i < discoArray; i++) {
+                    discography.append(`<li>${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
+                }
+                fetchMedia(name);
+                preSearch.css('display', 'none');
+                postSearch.removeAttr('style');
+                actionButton.text('Go Back');
+                actionButton.attr('data-toggle','off');
             }
-            fetchMedia(name);   
-            preSearch.css('display', 'none');
-            postSearch.removeAttr('style');
-            actionButton.text('Go Back');
-            actionButton.attr('data-toggle','off');
         })
 }
 
