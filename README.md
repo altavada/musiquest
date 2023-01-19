@@ -1,4 +1,4 @@
-# MusiQuest
+# MuziQuest
 
 ## Description
 
