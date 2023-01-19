@@ -14,6 +14,9 @@ let youTubeVid = "https://www.youtube.com/embed/";
 
 actionButton.click(userSearch);
 musiQuest.click(headingRefresh); //Event listener for click on h1 (MusiQuest)
+window.addEventListener('load', (event) => {
+    new cursoreffects.springyEmojiCursor({emoji: "🎤🎵"});
+  });
 
 //Function to ensure it only runs after a search has been completed
 function headingRefresh(){
@@ -36,6 +39,7 @@ function userSearch() {
         userDash.children('img').remove();
         actionButton.text('Submit');
         actionButton.attr('data-toggle','on');
+        location.reload();
     }
 }
 
@@ -76,7 +80,7 @@ function fetchMedia(artist) {
         if (banner != null) {
             songNBA.prepend('<img src=' + banner + '>');
         } else {
-            $('#songnamebyartist').text(artist);
+            $('#songnamebyartist').text(data.artists[0].strArtist);
         }
     })
     let youTubeID = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + artist + "&key=AIzaSyDefkvE7bM1ACryGnTt2zai9Z-pHZGAEXo"

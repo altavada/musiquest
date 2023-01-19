@@ -1,0 +1,94 @@
+.flicker {
+    width: 350px;
+    padding: 5px 10px;
+    background-color: #f00;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    outline: 0;
+    animation: wink 1.25s linear infinite;
+  }
+  .flicker:active {
+    animation: none;
+  }
+@keyframes wink {
+  50% {background-color: #fff; color:#f00; opacity: 0; }
+}
+  .flickering {
+    width: 350px;
+    padding: 5px 10px;
+    background-color: #0a0;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    outline: 0;
+    animation: winking 1s linear infinite;
+  }
+  .flickering:active {
+    animation: none;
+  }
+@keyframes winking {
+  10% { opacity: 1; }
+  20% { opacity: 0.5; }
+  30% { opacity: 0.7; }
+  40% { opacity: 0.1; }
+  50% { opacity: 0.4; }
+  60% { opacity: 0.8; }
+  70% { opacity: 0.2; }
+  80% { opacity: 0.6; }
+  90% { opacity: 0.9;}
+  100% { opacity: 0.5;}
+}
+  .colors {
+    width: auto;
+    padding: 5px 10px;
+    background-color: #f00;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    outline: 0;
+    animation: change 6.5s linear infinite;
+  }
+  .colors:active {
+    animation: none;
+  }
+@keyframes change {
+  12.5% { background-color: #f0f; }
+  25% { background-color: #00f; }
+  37.5% { background-color: #0ff; }
+  50% { background-color: #0f9; }
+  62.5% { background-color: #0a0; }
+  75% { background-color: #ff0; }
+  87.5% { background-color: #fa0; }
+  100% { background-color: #f00;}
+}
+.gradients {
+    width: auto;
+    padding: 5px 10px;
+    background-image: linear-gradient(to right, #f00, #f0f);
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    outline: 0;
+    animation: drift 2s linear infinite;
+  }
+  .gradients:active {
+    animation: none;
+  }
+@keyframes drift {
+  12.5% { background-image: linear-gradient(to right, #f0f, #00f); }
+  25% { background-image: linear-gradient(to right, #00f, #0ff); }
+  37.5% { background-image: linear-gradient(to right, #0ff, #0f9); }
+  50% { background-image: linear-gradient(to right, #0f9, #0a0); }
+  62.5% { background-image: linear-gradient(to right, #0a0, #ff0); }
+  75% { background-image: linear-gradient(to right, #ff0, #fa0); }
+  87.5% { background-image: linear-gradient(to right, #fa0, #f00); }
+  100% { background-image: linear-gradient(to right, #f00, #f0f);}
+}
+
+a{
+    color:rgb(163, 43, 233);
+}
+a:hover{
+    color:rgb(131, 40, 184);
+}
