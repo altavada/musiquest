@@ -1,68 +1,95 @@
 <!DOCTYPE html>
 <html class="has-background-dark">
+
+<html class="has-background-dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- Link to Bulma framework -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-        <link type="stylesheet" href="./assets/css/style.css">
-        <title>MusiQuest</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <style type="text/css">* {cursor: url(https://cur.cursors-4u.net/others/oth-5/oth476.cur),
+            auto !important;}</style><a href="https://www.cursors-4u.com/cursor/2009/10/05/treble-clef-2.html"
+            target="_blank" title="Treble clef 2"><img src="https://cur.cursors-4u.net/cursor.png" 
+            alt="Treble clef 2" style="position:absolute; top: 0px; right: 0px;" /></a>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>&#9835; MusiQuest &#9835;</title>
     </head>
-    <body>
+    <body class="tile-is-ancestor">
         <!-- Outer wrapper -->
-        <div id="appcontainer" class="tile is-parent is-12">
+        <div id="appcontainer" class="tile is-parent is-12 is-centered">
             <!-- For lyrics, titles, and user search interface -->
-            <div id="userdashboard" class="m-3 tile is-child is-two-thirds">
-                <h1 id="headline" class="is-size-1 title has-text-light m-3 tile is-child is-12 is-clickable">MusiQuest</h1>
-                <!-- Header for song title and artis. Should be populated with values returned 
-                from a Musixmatch API call using a JS method like .textContent or jQuery .text() -->
-                <h2 id="songnamebyartist" class="tile is-ancestor block has-text-light title is-size-3 mb-3 mt-1 aftersearch result-field column is-12" style="display:none"><span id="artistname"></span></h2>
+            <div id="userdashboard" class="m-3 tile is-child is-12">
+                <h1 id="headline" class="tile colors is-size-1 title m-3 is-clickable">&#9835;<p class="has-text-light">MusiQuest</p> &#9835;</h1>
                 <div id="wrapperlyrics" class="block mt-4 column is-12">
                     <!-- Search box -->
-                    <textarea id="searchlyrics" class="beforesearch textarea column is-4 "></textarea>
-                    
-                    <!-- Scrolling dialogue box for full lyrics returned from Musixmatch -->
-                    <div id="dialoguebox" class="aftersearch has-text-light" style="display:none">
+                    <textarea id="searchlyrics" placeholder="Search the Artist!" class="beforesearch textarea column is-12"></textarea>
+                    <!-- Holds the banner or the artisit's name depending on if there is a banner -->
+                    <h2 id="songnamebyartist" class="has-text-light title is-size-3 mb-4 is-12 aftersearch result-field" style="display:none"><span id="artistname"></span></h2>
+                    <!-- Div that holds the band's discography and the youtube video -->
+                    <div id="dialoguebox" class=" aftersearch has-text-light is-12" style="display:none">
                     <!--Output for discography for artist searched by user-->
                         <ul id="discography" class="result-field" class="mt-4 column is-9"><span class="is-size-3 block">Albums:</span>
                             
                         </ul>
+                        <!-- div that holds the embedded video player -->
+                        <div id="embedwrapper" class="aftersearch mt-5" style="display:none">
+                            <!-- Youtube result goes here -->
+                            <iframe id="videoplayer" height="250vh" width="450vw" class="" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <!-- Mockup of future development (artist bio): -->
+                            <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
+                        </div>
                     </div>
-                    <!-- Button to execute lyrics search or reset the page, 
+                        
+                    <!-- Button to discography search or reset the page, 
                     depending on what state it's in (using the "data-toggle" 
-                    attribute). For demo and development purposes, this button 
-                    is attached to an event handler that toggles the display 
-                    state of the page with mockup search results. -->
-                    <button id="actionbutton" data-toggle="on" class="button is-info is-pulled-right mt-3 mb-6">Submit</button>
+                    attribute). -->
+                    <div class="container">
+                        <div class="columns is-centered">
+                            <div class="column is-2 is-two-fifths">
+                                <div class="mt-3 has-text-centered">
+                                    <button id="actionbutton" class="colors button is-normal is-rounded" data-toggle="on">
+                                        <span class="icon is-small">
+                                            <i class="fas fa-magnifying-glass"></i>
+                                        </span>
+                                        <span>Search</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div> 
+                
             </div>
-                <!-- Wrapper for embedded search results -->
-                <div id="embedwrapper" class="tile aftersearch m-3 mt-6 section" style="display:none">
-                    <!-- Youtube result goes here -->
-                    <iframe id="videoplayer" class="tile is-pulled-right is-middle mt-6 column is-12 section" samesite="none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <!-- Mockup of future development (artist bio): -->
-                    <!-- <iframe id="biobox" width="560" height="315" src="https://en.wikipedia.org/wiki/Chris_Stapleton" title="Wikipedia"></iframe> -->
-                </div>
+                
         </div>
-        <!-- For embedded content -->
-        <div id="outputdashboard" class="section tile">
-                <!-- Icon or image taking up space before search is made. -->
-                <img id="goicon" class="beforesearch ">
-        </div>
-    </body>    
+        <!-- For embedded content
+        <div id="outputdashboard" class="">
+                 Icon or image taking up space before search is made. -->
+                <!-- <img id="goicon" class="beforesearch ">
+        </div> --> 
+    </body>
+    <!-- Footer that holds all of our names with links to our github accounts  -->
     <footer class="mt-3">
         <div id="creditswrapper" class="footer has-background-dark has-text-centered is-size-7">
-            <!-- Empty <a> tags with our names, just for now. -->
-            <a class="has-text-light">Branning Knight, </a>
-            <a class="has-text-light">Kevin Lozaro, </a>
-            <a class="has-text-light">Brad Opdyke, </a>
-            <a class="has-text-light">Mostafa Taleb, </a>
-            <a class="has-text-light">Sam Tomaka, </a>
-            <a class="has-text-light">Michael Weiss. </a>
+            <a class="has-text-danger" href="https://github.com/BranningK">Branning Knight, </a>
+            <a class="has-text-warning" href="https://github.com/klozano17">Kevin Lozaro, </a>
+            <a class="has-text-primary" href="https://github.com/bradopdyke">Brad Opdyke, </a>
+            <a class="has-text-success" href="https://github.com/Mufasa91">Mostafa Taleb, </a>
+            <a class="has-text-info" href="https://github.com/altavada">Sam Tomaka, </a>
+            <a class="" href="https://github.com/Veis1337">Michael Weiss. </a>
         </div>
+        <a href="https://bulma.io">
+            <img
+              src="https://bulma.io/images/made-with-bulma.png"
+              alt="Made with Bulma"
+              width="128"
+              height="24">
+          </a>
     </footer>
     <!-- external JS -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./assets/js/script.js"></script>
+    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
 </html>

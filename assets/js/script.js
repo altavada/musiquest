@@ -4,7 +4,7 @@ let searchArtist = $("#searchlyrics");
 let videoPlayer = $('#videoplayer');
 let preSearch = $('.beforesearch');
 let postSearch = $('.aftersearch');
-let wrapperLyrics = $('#songnamebyartist');
+let songNBA = $('#songnamebyartist');
 let userDash = $('#userdashboard');
 let discography = $("#discography");
 let musiQuest = $('#headline')
@@ -14,6 +14,9 @@ let youTubeVid = "https://www.youtube.com/embed/";
 
 actionButton.click(userSearch);
 musiQuest.click(headingRefresh); //Event listener for click on h1 (MusiQuest)
+window.addEventListener('load', (event) => {
+    new cursoreffects.springyEmojiCursor({emoji: "🎤🎵"});
+  });
 
 //Function to ensure it only runs after a search has been completed
 function headingRefresh(){
@@ -36,11 +39,12 @@ function userSearch() {
         userDash.children('img').remove();
         actionButton.text('Submit');
         actionButton.attr('data-toggle','on');
+        location.reload();
     }
 }
 
 function fetchData(name) {
-    // $('#songnamebyartist').text(name);
+    
     fetch(urlDisco + name)
         .then(function (response) {
             if (response.ok) {
@@ -50,15 +54,21 @@ function fetchData(name) {
             }
         })
         .then(data => {
-            let discoArray = data.album.length;
-            for (let i = 0; i < discoArray; i++) {
-                discography.append(`<li>${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
+            if (data.album == null) {
+                searchArtist.val('');
+                searchArtist.attr("placeholder","Artist Not Found -- Please try again");
+                return;
+            } else {
+                let discoArray = data.album.length;
+                for (let i = 0; i < discoArray; i++) {
+                    discography.append(`<li>${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
+                }
+                fetchMedia(name);
+                preSearch.css('display', 'none');
+                postSearch.removeAttr('style');
+                actionButton.text('Go Back');
+                actionButton.attr('data-toggle','off');
             }
-            fetchMedia(name);   
-            preSearch.css('display', 'none');
-            postSearch.removeAttr('style');
-            actionButton.text('Go Back');
-            actionButton.attr('data-toggle','off');
         })
 }
 
@@ -74,7 +84,9 @@ function fetchMedia(artist) {
     .then(data => {
         let banner = data.artists[0].strArtistBanner;
         if (banner != null) {
-            wrapperLyrics.prepend('<img src=' + banner + '>');
+            songNBA.prepend('<img src=' + banner + '>');
+        } else {
+            $('#songnamebyartist').text(data.artists[0].strArtist);
         }
     })
     let youTubeID = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + artist + "&key=AIzaSyDefkvE7bM1ACryGnTt2zai9Z-pHZGAEXo"
