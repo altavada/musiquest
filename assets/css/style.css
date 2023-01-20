@@ -131,3 +131,7 @@ a:hover{
         text-size-adjust: 5px;
     }
 }
+
+#dialoguebox, #songnamebyartist {
+  text-align: center;
+}
