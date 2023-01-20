@@ -126,9 +126,9 @@ a:hover{
     100% { color: #f00;}
 }
 
-@media screen and (max-width: 768px) {
-    h1{
-        text-size-adjust: 5px;
+@media screen and (max-width: 374px) {
+    #headline > p {
+        font-size: 42px;
     }
 }
 
