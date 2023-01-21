@@ -98,6 +98,28 @@ a:hover{
     color:rgb(131, 40, 184);
 }
 
+#historyWrapper {
+  width: 15%;
+  margin: auto;
+}
+
+#history {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.historyLi {
+  font-size: 1rem;
+  color: white;
+}
+
+.historyLi:hover {
+  font-size: 1.2rem;
+  color: violet;
+  border: solid violet .5px;
+}
+
 
 .colors {
     display: flex;
@@ -129,6 +151,9 @@ a:hover{
 @media screen and (max-width: 768px) {
     h1{
         text-size-adjust: 5px;
+    }
+    #historyWrapper {
+      width: 50%;
     }
 }
 
