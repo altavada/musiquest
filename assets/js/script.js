@@ -29,7 +29,7 @@ startUp();
 function startUp() {
     Object.keys(localStorage).forEach(function (key) {
         history.append(`<li class="historyLi">${localStorage.getItem(key)}</li>`);
-        if ($("#history li").length > 4) {
+        if ($("#history li").length > 5) {
             $("#history li").last().remove();
         }
     });
@@ -48,13 +48,7 @@ function headingRefresh() {
 
 function userSearch() {
     let artistName = searchArtist.val();
-    if (!historyCount) {
-        historyCount = 0;
-    } else {
-        historyCount = historyCount + 1;
-    }
     if (actionButton.attr('data-toggle') == 'on') {
-        localStorage.setItem("history" + historyCount, artistName);
         fetchData(artistName);
     } else {
         location.reload();
@@ -76,10 +70,16 @@ function fetchData(name) {
         })
         .then(data => {
             if (data.album == null) {
-                searchArtist.val('');
-                searchArtist.attr("placeholder", "Artist Not Found -- Please try again");
+                searchArtist.val('')
+                    .attr("placeholder", "Artist Not Found -- Please try again");
                 return;
             } else {
+                if (!historyCount) {
+                    historyCount = 0;
+                } else {
+                    historyCount = historyCount + 1;
+                }
+                localStorage.setItem("history" + historyCount, searchArtist.val());
                 let discoArray = data.album.length;
                 for (let i = 0; i < discoArray; i++) {
                     discography.append(`<li>${data.album[i].strAlbum} (${data.album[i].intYearReleased})</li>`);
@@ -120,7 +120,6 @@ function fetchMedia(artist) {
             }
         })
         .then(data => {
-            console.log(data);
             // debug for first search result sometimes being a YT channel instead of a video
             let x = 0;
             if (data.items[0].id.kind != 'youtube#video') {
