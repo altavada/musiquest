@@ -27,6 +27,7 @@
   .flickering:active {
     animation: none;
   }
+
 @keyframes winking {
   10% { opacity: 1; }
   20% { opacity: 0.5; }
@@ -120,6 +121,10 @@ a:hover{
   border: solid violet .5px;
 }
 
+.search-container {
+  width: 250px;
+  margin: auto;
+}
 
 .colors {
     display: flex;
