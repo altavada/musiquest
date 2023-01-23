@@ -14,6 +14,11 @@ let youTubeVid = "https://www.youtube.com/embed/";
 let history = $("#history");
 let historyCount = localStorage.length;
 
+//Setting a blank local storage for search history
+if (!historyCount) {
+localStorage.setItem("history0", " ");
+}
+
 actionButton.click(userSearch);
 musiQuest.click(headingRefresh); //Event listener for click on h1 (MusiQuest)
 window.addEventListener('load', (event) => {
@@ -50,6 +55,7 @@ function userSearch() {
     let artistName = searchArtist.val();
     if (!historyCount) {
         historyCount = 0;
+
     } else {
         historyCount = historyCount + 1;
     }
