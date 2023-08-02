@@ -14,11 +14,11 @@ N/A, simply go to the deployed link (https://altavada.github.io/musiquest/)
 
 Simply enter the desired musical artist's name into the text box and click the search button.
 
-![Image of the deployed application's main page](assets\images\firstpageMQ.png)
+![Image of the deployed application's main page](.\assets\images\firstpageMQ.png)
 
 Then you can see the artist's discography and a video related to them. 
 
-![Example image of the deployed application's search results for James Brown](assets\images\secondpageMQ.png)
+![Example image of the deployed application's search results for James Brown](.\assets\images\secondpageMQ.png)
 
 ## Credits
 
